@@ -1,0 +1,48 @@
+#!/usr/bin/env node
+'use strict'
+
+var yargs = require('yargs')
+var NumbatEmitter = require('numbat-emitter')
+
+var argv = yargs
+  .alias('uri', 'u')
+  .describe('uri', 'URI of the collector/analyzer to send to')
+  .default('uri', 'tcp://127.0.0.1:3333')
+
+  .alias('app', 'a')
+  .describe('app', 'Application name to use')
+  .demand('app')
+
+  .alias('value', 'v')
+  .describe('value', 'Value to send')
+  .default('value', 1)
+
+  .alias('name', 'n')
+  .describe('name', 'Name of the metric to send')
+  .demand('name')
+
+  .alias('ttl', 't')
+  .describe('ttl', 'TTL of the metric')
+
+  .describe('tag', 'Any tag you want to send, in `--tag "foo=bar"` form')
+  .array('tag')
+
+  .argv
+
+var emitter = new NumbatEmitter({
+  app: argv.app,
+  uri: argv.uri
+})
+
+var metric = {
+  name: argv.name,
+  value: argv.value,
+  ttl: argv.ttl
+}
+
+;(argv.tag || []).forEach(function (t) {
+  var index = t.indexOf('=')
+  metric[t.slice(0, index)] = t.slice(index + 1)
+})
+
+emitter.metric(metric)

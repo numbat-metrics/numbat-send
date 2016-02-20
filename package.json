@@ -1,0 +1,22 @@
+{
+  "name": "numbat-send",
+  "version": "0.0.0",
+  "description": "Send Numbat metrics from command line",
+  "preferGlobal": true,
+  "keywords": [
+    "numbat"
+  ],
+  "author": "Maciej Małecki <me@mmalecki.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/numbat-metrics/numbat-send"
+  },
+  "bin": {
+    "numbat-send": "./bin/numbat-send"
+  },
+  "dependencies": {
+    "numbat-emitter": "~2.3.2",
+    "yargs": "~4.1.0"
+  },
+  "license": "ISC"
+}
