@@ -31,7 +31,8 @@ var argv = yargs
 
 var emitter = new NumbatEmitter({
   app: argv.app,
-  uri: argv.uri
+  uri: argv.uri,
+  shouldUnref: false
 })
 
 var metric = {
