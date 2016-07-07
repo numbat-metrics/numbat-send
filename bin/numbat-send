@@ -46,4 +46,10 @@ var metric = {
   metric[t.slice(0, index)] = t.slice(index + 1)
 })
 
-emitter.metric(metric)
+emitter.on('ready', function () {
+  emitter.metric(metric)
+  emitter.client.on('finish', function () {
+    process.exit()
+  })
+  emitter.input.end()
+})
