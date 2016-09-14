@@ -4,6 +4,11 @@
 var yargs = require('yargs')
 var NumbatEmitter = require('numbat-emitter')
 
+if (process.argv.indexOf('--version') !== -1) {
+  console.log(require('../package.json').version)
+  process.exit(0)
+}
+
 var argv = yargs
   .alias('uri', 'u')
   .describe('uri', 'URI of the collector/analyzer to send to')
@@ -26,6 +31,8 @@ var argv = yargs
 
   .describe('tag', 'Any tag you want to send, in `--tag "foo=bar"` form')
   .array('tag')
+
+  .describe('version', 'Print version and exit')
 
   .argv
 
