@@ -1,4 +1,6 @@
 # numbat-send
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/numbat-metrics/numbat-send.svg)](https://greenkeeper.io/)
 Send a single metric to a Numbat receiver.
 
 ## Installation
