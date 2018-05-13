@@ -18,8 +18,8 @@
     "numbat-send": "./bin/numbat-send"
   },
   "dependencies": {
-    "numbat-emitter": "^3.2.0",
-    "yargs": "~4.1.0"
+    "numbat-emitter": "^5.0.1",
+    "yargs": "^11.0.0"
   },
   "license": "ISC"
 }
