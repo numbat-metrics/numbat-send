@@ -1,6 +1,6 @@
 {
   "name": "numbat-send",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Send Numbat metrics from command line",
   "preferGlobal": true,
   "keywords": [
